@@ -6,12 +6,14 @@ interface CompoundFormContext {
 }
 
 const CompoundFormContext = createContext<CompoundFormContext | null>(null);
+// isFocus와 setIsFocus를 담는 context 정의
+// 하위에서 useCompoundFormContext를 꺼내 쓸 수 있음
 
 export const useCompoundFormContext = () => {
   const context = useContext(CompoundFormContext);
 
   if (!context) {
-    throw new Error("CompundForm.* 컴포넌트만 사용 가능합니다");
+    throw new Error("CompoundForm.* 컴포넌트만 사용 가능합니다");
   }
   return context;
 };
